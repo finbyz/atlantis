@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include atlantis *.css
+recursive-include atlantis *.csv
+recursive-include atlantis *.html
+recursive-include atlantis *.ico
+recursive-include atlantis *.js
+recursive-include atlantis *.json
+recursive-include atlantis *.md
+recursive-include atlantis *.png
+recursive-include atlantis *.py
+recursive-include atlantis *.svg
+recursive-include atlantis *.txt
+recursive-exclude atlantis *.pyc
