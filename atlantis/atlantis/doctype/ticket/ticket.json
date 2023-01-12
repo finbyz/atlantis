@@ -1,0 +1,169 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-01-12 11:06:34.589316",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "call_time",
+  "call_date",
+  "agent_name",
+  "caller_name",
+  "caller_contact_number",
+  "caller_email",
+  "priority",
+  "call_type",
+  "preferred_contact_type",
+  "caller_request",
+  "agent_comments",
+  "column_break_12",
+  "status",
+  "follow_up_required",
+  "resolution",
+  "closure_comments",
+  "closed_by",
+  "closure_date_and_time",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "call_time",
+   "fieldtype": "Time",
+   "label": "Call Time"
+  },
+  {
+   "fieldname": "call_date",
+   "fieldtype": "Date",
+   "label": "Call Date"
+  },
+  {
+   "fieldname": "agent_name",
+   "fieldtype": "Link",
+   "label": "Agent Name",
+   "options": "User"
+  },
+  {
+   "fieldname": "caller_name",
+   "fieldtype": "Data",
+   "label": "Caller Name"
+  },
+  {
+   "fieldname": "caller_contact_number",
+   "fieldtype": "Data",
+   "label": "Caller Contact Number"
+  },
+  {
+   "fieldname": "caller_email",
+   "fieldtype": "Data",
+   "label": "Caller Email",
+   "options": "Email"
+  },
+  {
+   "default": "Medium",
+   "fieldname": "priority",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Priority",
+   "options": "Issue Priority"
+  },
+  {
+   "fieldname": "call_type",
+   "fieldtype": "Link",
+   "label": "Call Type",
+   "options": "Call Type"
+  },
+  {
+   "fieldname": "preferred_contact_type",
+   "fieldtype": "Select",
+   "label": "Preferred Contact Type",
+   "options": "\nCall\nEmail"
+  },
+  {
+   "fieldname": "caller_request",
+   "fieldtype": "Small Text",
+   "label": "Caller Request"
+  },
+  {
+   "fieldname": "agent_comments",
+   "fieldtype": "Small Text",
+   "label": "Agent Comments"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "no_copy": 1,
+   "options": "Open\nReplied\nOn Hold\nResolved\nClosed"
+  },
+  {
+   "fieldname": "follow_up_required",
+   "fieldtype": "Select",
+   "label": "Follow up Required",
+   "options": "\nYes\nNo",
+   "translatable": 1
+  },
+  {
+   "fieldname": "closure_comments",
+   "fieldtype": "Small Text",
+   "label": "Closure Comments"
+  },
+  {
+   "fieldname": "closed_by",
+   "fieldtype": "Link",
+   "label": "Closed By",
+   "options": "User"
+  },
+  {
+   "fieldname": "resolution",
+   "fieldtype": "Small Text",
+   "label": "Resolution"
+  },
+  {
+   "fieldname": "closure_date_and_time",
+   "fieldtype": "Datetime",
+   "label": "Closure Date and Time"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Ticket",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-01-12 11:31:49.984130",
+ "modified_by": "Administrator",
+ "module": "Atlantis",
+ "name": "Ticket",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
