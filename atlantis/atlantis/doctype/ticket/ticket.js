@@ -2,7 +2,9 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Ticket', {
-	// refresh: function(frm) {
-
-	// }
+	refresh: function(frm) {
+        if(frm.doc.__islocal){
+            frm.set_value('agent_name' , frappe.session.user)
+        }   
+    },
 });
