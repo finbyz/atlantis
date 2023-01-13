@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "Ticket.#####",
  "creation": "2023-01-12 11:06:34.589316",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -24,40 +25,49 @@
   "closure_comments",
   "closed_by",
   "closure_date_and_time",
+  "opening_date",
   "amended_from"
  ],
  "fields": [
   {
    "fieldname": "call_time",
    "fieldtype": "Time",
-   "label": "Call Time"
+   "label": "Call Time",
+   "options": "Now",
+   "reqd": 1
   },
   {
    "fieldname": "call_date",
    "fieldtype": "Date",
-   "label": "Call Date"
+   "label": "Call Date",
+   "options": "Today",
+   "reqd": 1
   },
   {
    "fieldname": "agent_name",
    "fieldtype": "Link",
    "label": "Agent Name",
-   "options": "User"
+   "options": "User",
+   "reqd": 1
   },
   {
    "fieldname": "caller_name",
    "fieldtype": "Data",
-   "label": "Caller Name"
+   "label": "Caller Name",
+   "reqd": 1
   },
   {
    "fieldname": "caller_contact_number",
    "fieldtype": "Data",
-   "label": "Caller Contact Number"
+   "label": "Caller Contact Number",
+   "reqd": 1
   },
   {
    "fieldname": "caller_email",
    "fieldtype": "Data",
    "label": "Caller Email",
-   "options": "Email"
+   "options": "Email",
+   "reqd": 1
   },
   {
    "default": "Medium",
@@ -66,29 +76,34 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Priority",
-   "options": "Issue Priority"
+   "options": "Issue Priority",
+   "reqd": 1
   },
   {
    "fieldname": "call_type",
-   "fieldtype": "Link",
+   "fieldtype": "Select",
    "label": "Call Type",
-   "options": "Call Type"
+   "options": "Information Seeking\nBusiness Partner\nMarine & WaterPark\nRestaurant Reservations\nRooms\nOther",
+   "reqd": 1
   },
   {
    "fieldname": "preferred_contact_type",
    "fieldtype": "Select",
    "label": "Preferred Contact Type",
-   "options": "\nCall\nEmail"
+   "options": "Call\nEmail",
+   "reqd": 1
   },
   {
    "fieldname": "caller_request",
    "fieldtype": "Small Text",
-   "label": "Caller Request"
+   "label": "Caller Request",
+   "reqd": 1
   },
   {
    "fieldname": "agent_comments",
    "fieldtype": "Small Text",
-   "label": "Agent Comments"
+   "label": "Agent Comments",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_12",
@@ -102,13 +117,15 @@
    "in_standard_filter": 1,
    "label": "Status",
    "no_copy": 1,
-   "options": "Open\nReplied\nOn Hold\nResolved\nClosed"
+   "options": "Open\nReplied\nOn Hold\nResolved\nClosed",
+   "reqd": 1
   },
   {
    "fieldname": "follow_up_required",
    "fieldtype": "Select",
    "label": "Follow up Required",
    "options": "\nYes\nNo",
+   "reqd": 1,
    "translatable": 1
   },
   {
@@ -140,12 +157,16 @@
    "options": "Ticket",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "opening_date",
+   "fieldtype": "Datetime",
+   "label": "Opening Date"
   }
  ],
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2023-01-12 11:31:49.984130",
+ "modified": "2023-01-13 08:44:18.173171",
  "modified_by": "Administrator",
  "module": "Atlantis",
  "name": "Ticket",
