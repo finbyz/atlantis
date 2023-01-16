@@ -161,12 +161,13 @@
   {
    "fieldname": "opening_date",
    "fieldtype": "Datetime",
-   "label": "Opening Date"
+   "label": "Opening Date",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-01-13 08:44:18.173171",
+ "modified": "2023-01-13 09:58:56.469580",
  "modified_by": "Administrator",
  "module": "Atlantis",
  "name": "Ticket",
