@@ -5,6 +5,7 @@ import frappe
 from frappe.model.document import Document
 from datetime import datetime
 from erpnext.accounts.utils import get_fiscal_year, now
+import json
 
 
 class Ticket(Document):
@@ -29,3 +30,17 @@ class Ticket(Document):
 			minutes = sla_calculation.total_seconds() / 60
 			if minutes:
 				self.sla_calculation = minutes
+
+@frappe.whitelist()
+def set_multiple_status(names, status):
+	names = json.loads(names)
+	for name in names:
+		set_status(name, status)
+
+
+
+@frappe.whitelist()
+def set_status(name, status):
+	st = frappe.get_doc("Ticket", name)
+	st.status = status
+	st.save()
