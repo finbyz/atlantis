@@ -11,6 +11,7 @@ import json
 class Ticket(Document):
 	def validate(self):
 		self.opening_date = self.creation
+	def on_submit(self):
 		if self.status == "Resolved":
 			self.closure_date_and_time = now()
 			opening = datetime.strptime(self.opening_date, '%Y-%m-%d %H:%M:%S.%f')
