@@ -19,4 +19,13 @@ class Ticket(Document):
 			minutes = sla_calculation.total_seconds() / 60
 			if minutes:
 				self.sla_calculation = minutes
-			
+	def on_update_after_submit(self):
+		if self.status == "Resolved":
+			self.closure_date_and_time = now()
+			opening = datetime.strptime(self.opening_date, '%Y-%m-%d %H:%M:%S.%f')
+			close = datetime.strptime(self.closure_date_and_time, '%Y-%m-%d %H:%M:%S.%f')
+			sla_calculation = close - opening
+			frappe.msgprint(str(sla_calculation.total_seconds()))
+			minutes = sla_calculation.total_seconds() / 60
+			if minutes:
+				self.sla_calculation = minutes
