@@ -16,7 +16,6 @@ class Ticket(Document):
 			opening = datetime.strptime(self.opening_date, '%Y-%m-%d %H:%M:%S.%f')
 			close = datetime.strptime(self.closure_date_and_time, '%Y-%m-%d %H:%M:%S.%f')
 			sla_calculation = close - opening
-			frappe.msgprint(str(sla_calculation.total_seconds()))
 			minutes = sla_calculation.total_seconds() / 60
 			if minutes:
 				self.sla_calculation = minutes
