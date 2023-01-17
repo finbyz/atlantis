@@ -6,6 +6,17 @@ from frappe.model.document import Document
 from datetime import datetime
 from erpnext.accounts.utils import get_fiscal_year, now
 import json
+from frappe.utils import (
+	add_to_date,
+	cint,
+	date_diff,
+	get_datetime,
+	get_time,
+	get_weekdays,
+	getdate,
+	now_datetime,
+	time_diff_in_seconds,
+)
 
 
 class Ticket(Document):
@@ -20,6 +31,7 @@ class Ticket(Document):
 			minutes = sla_calculation.total_seconds() / 60
 			if minutes:
 				self.sla_calculation = minutes
+			self.set_resolution_time()
 	def on_update_after_submit(self):
 		if self.status == "Resolved":
 			self.closure_date_and_time = now()
@@ -29,6 +41,12 @@ class Ticket(Document):
 			minutes = sla_calculation.total_seconds() / 60
 			if minutes:
 				self.sla_calculation = minutes
+			self.set_resolution_time()
+	def set_resolution_time(self):
+		# total time taken from issue creation to closing
+		resolution_time = time_diff_in_seconds(self.closure_date_and_time, self.creation)
+		self.db_set("sla_calculation", resolution_time)
+
 
 @frappe.whitelist()
 def set_multiple_status(names, status):
@@ -43,3 +61,4 @@ def set_status(name, status):
 	st = frappe.get_doc("Ticket", name)
 	st.status = status
 	st.save()
+
