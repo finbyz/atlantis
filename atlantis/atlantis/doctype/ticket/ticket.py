@@ -23,7 +23,7 @@ class Ticket(Document):
 	def validate(self):
 		self.opening_date = self.creation
 	def on_submit(self):
-		if self.status == "Resolved":
+		if self.status == "Resolved" and not self.sla_calculation:
 			self.closure_date_and_time = now()
 			opening = datetime.strptime(self.opening_date, '%Y-%m-%d %H:%M:%S.%f')
 			close = datetime.strptime(self.closure_date_and_time, '%Y-%m-%d %H:%M:%S.%f')
