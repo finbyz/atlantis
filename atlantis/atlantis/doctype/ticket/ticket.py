@@ -24,23 +24,9 @@ class Ticket(Document):
 		self.opening_date = self.creation
 	def on_submit(self):
 		if self.status == "Resolved" and not self.sla_calculation:
-			self.closure_date_and_time = now()
-			opening = datetime.strptime(self.opening_date, '%Y-%m-%d %H:%M:%S.%f')
-			close = datetime.strptime(self.closure_date_and_time, '%Y-%m-%d %H:%M:%S.%f')
-			sla_calculation = close - opening
-			minutes = sla_calculation.total_seconds() / 60
-			if minutes:
-				self.sla_calculation = minutes
 			self.set_resolution_time()
 	def on_update_after_submit(self):
 		if self.status == "Resolved" and not self.sla_calculationI:
-			self.closure_date_and_time = now()
-			opening = datetime.strptime(self.opening_date, '%Y-%m-%d %H:%M:%S.%f')
-			close = datetime.strptime(self.closure_date_and_time, '%Y-%m-%d %H:%M:%S.%f')
-			sla_calculation = close - opening
-			minutes = sla_calculation.total_seconds() / 60
-			if minutes:
-				self.sla_calculation = minutes
 			self.set_resolution_time()
 	def set_resolution_time(self):
 		# total time taken from issue creation to closing
