@@ -33,7 +33,7 @@ class Ticket(Document):
 				self.sla_calculation = minutes
 			self.set_resolution_time()
 	def on_update_after_submit(self):
-		if self.status == "Resolved" not self.sla_calculation:
+		if self.status == "Resolved" and not self.sla_calculationI:
 			self.closure_date_and_time = now()
 			opening = datetime.strptime(self.opening_date, '%Y-%m-%d %H:%M:%S.%f')
 			close = datetime.strptime(self.closure_date_and_time, '%Y-%m-%d %H:%M:%S.%f')
