@@ -125,6 +125,13 @@ doctype_js = {
 # 		"atlantis.tasks.monthly"
 # 	]
 # }
+scheduler_events = {
+	"cron": {
+		"0/30 * * * *": [
+			"atlantis.atlantis.doctype.ticket.ticket.set_violation_time",
+		]
+	}
+}
 
 # Testing
 # -------

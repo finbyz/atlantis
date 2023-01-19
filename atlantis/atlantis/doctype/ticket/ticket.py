@@ -40,3 +40,15 @@ def set_status(name, status):
 	st.status = status
 	st.save()
 
+def set_violation_time():
+	from frappe.utils import (
+	time_diff_in_seconds,
+	)
+	from erpnext.accounts.utils import get_fiscal_year, now
+	ticket_list = frappe.get_list("Ticket" , {'status':["!=" , "Resolved"] , 'docstatus' :1 } , pluck="name")
+	for row in ticket_list:
+		opening_date = frappe.db.get_value('Ticket', row ,'opening_date')
+		violation_time = time_diff_in_seconds(now() , opening_date )
+		if violation_time > 7200:
+			print(violation_time)
+			frappe.db.set_value('Ticket' , row , 'violation' , violation_time ,update_modified= False)
