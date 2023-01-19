@@ -10,11 +10,11 @@ frappe.ui.form.on('Ticket', {
     status:function(frm){
         if(frm.doc.status == "Resolved"){
             frappe.model.get_value("User" , frappe.session.user , 'full_name' , (r)=>{
-                frm.set_value('closed_by' , r.full_name)
+                frm.set_value('closed___by' , r.full_name)
             })
         }
         else{
-            frm.set_value('closed_by' , null)
+            frm.set_value('closed___by' , null)
         }
     }  
 });
