@@ -19,13 +19,13 @@ class Ticket(Document):
 			self.set_resolution_time()
 		if not self.closed_by and self.status == "Resolved":
 			full_name =frappe.db.get_value("User" , frappe.session.user , 'full_name' )
-			frappe.db.set_value("Ticket" , self.name , 'agent_name' , full_name )
+			frappe.db.set_value("Ticket" , self.name , 'closed_by' , full_name )
 	def on_update_after_submit(self):
 		if self.status == "Resolved" and not self.sla_calculation:
 			self.set_resolution_time()
 		if not self.closed_by and self.status == "Resolved":
 			full_name =frappe.db.get_value("User" , frappe.session.user , 'full_name' )
-			frappe.db.set_value("Ticket" , self.name , 'agent_name' , full_name )
+			frappe.db.set_value("Ticket" , self.name , 'closed_by' , full_name )
 	def set_resolution_time(self):
 		resolution_time = time_diff_in_seconds(self.closure_date_and_time, self.creation)
 		self.db_set("sla_calculation", resolution_time)
