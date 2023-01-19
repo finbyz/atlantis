@@ -7,14 +7,6 @@ from datetime import datetime
 from erpnext.accounts.utils import get_fiscal_year, now
 import json
 from frappe.utils import (
-	add_to_date,
-	cint,
-	date_diff,
-	get_datetime,
-	get_time,
-	get_weekdays,
-	getdate,
-	now_datetime,
 	time_diff_in_seconds,
 )
 
@@ -26,7 +18,7 @@ class Ticket(Document):
 		if self.status == "Resolved" and not self.sla_calculation:
 			self.set_resolution_time()
 	def on_update_after_submit(self):
-		if self.status == "Resolved" and not self.sla_calculationI:
+		if self.status == "Resolved" and not self.sla_calculation:
 			self.set_resolution_time()
 	def set_resolution_time(self):
 		# total time taken from issue creation to closing
