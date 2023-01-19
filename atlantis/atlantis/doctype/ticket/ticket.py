@@ -17,11 +17,14 @@ class Ticket(Document):
 	def on_submit(self):
 		if self.status == "Resolved" and not self.sla_calculation:
 			self.set_resolution_time()
+		if not self.closed_by and self.status == "Resolved":
+			self.closed_by = frappe.db.get_value("User" , frappe.session.user , 'full_name' )
 	def on_update_after_submit(self):
 		if self.status == "Resolved" and not self.sla_calculation:
 			self.set_resolution_time()
+		if not self.closed_by and self.status == "Resolved":
+			self.closed_by = frappe.db.get_value("User" , frappe.session.user , 'full_name' )
 	def set_resolution_time(self):
-		# total time taken from issue creation to closing
 		resolution_time = time_diff_in_seconds(self.closure_date_and_time, self.creation)
 		self.db_set("sla_calculation", resolution_time)
 
@@ -52,3 +55,4 @@ def set_violation_time():
 		if violation_time > 7200:
 			print(violation_time)
 			frappe.db.set_value('Ticket' , row , 'violation' , violation_time ,update_modified= False)
+	
