@@ -51,18 +51,21 @@
    "reqd": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "caller_name",
    "fieldtype": "Data",
    "label": "Caller Name",
    "reqd": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "caller_contact_number",
    "fieldtype": "Data",
    "label": "Caller Contact Number",
    "reqd": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "caller_email",
    "fieldtype": "Data",
    "label": "Caller Email",
@@ -80,6 +83,7 @@
    "reqd": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "call_type",
    "fieldtype": "Select",
    "label": "Call Type",
@@ -169,7 +173,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-01-17 10:39:17.034070",
+ "modified": "2023-01-20 09:46:09.616726",
  "modified_by": "Administrator",
  "module": "Atlantis",
  "name": "Ticket",
