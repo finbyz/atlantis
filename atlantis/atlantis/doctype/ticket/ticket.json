@@ -69,8 +69,7 @@
    "fieldname": "caller_email",
    "fieldtype": "Data",
    "label": "Caller Email",
-   "options": "Email",
-   "reqd": 1
+   "options": "Email"
   },
   {
    "default": "Medium",
@@ -173,7 +172,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-01-20 09:46:09.616726",
+ "modified": "2023-01-21 08:40:39.703365",
  "modified_by": "Administrator",
  "module": "Atlantis",
  "name": "Ticket",
